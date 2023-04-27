@@ -37,9 +37,11 @@ body {
     font-weight: bold;
   }
 
-  .reset-button {
+  .reset-button,  .autoplay-button {
     font-size: 16px;
     padding: 10px 20px 10px 20px;
     border: none;
     cursor: pointer;
   }
+
+ 
