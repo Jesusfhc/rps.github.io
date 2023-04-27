@@ -96,11 +96,28 @@ function playGame(player) {
                       `;
 
     scoreP.innerHTML = `Score: Wins: ${score.wins}, Loses: ${score.loses}, Ties: ${score.ties}`;
-
-    /*alert(`You chose ${player}, pc chose ${pc}. ${result}. 
-    Score: Wins: ${score.wins}, Loses: ${score.loses}, Ties: ${score.ties}`)
-    */
     
-
 }
+
+let itsAUto = false;
+let intervalId = null;
+let autoButton = document.querySelector('.autoplay-button');
+
+function autoplay() {
+
+    if (!itsAUto) {
+       intervalId = setInterval(
+                                function play() {
+                                    let autoPlayer = pcChoice();
+                                    
+                                    playGame(autoPlayer)
+                                
+                                }, 1000);
+                                itsAUto = true;
+                                autoButton.innerHTML = 'Stop Auto';
+    } else {
+        clearInterval(intervalId);
+        itsAUto = false;
+        autoButton.innerHTML = 'Autoplay'
+    }
 
