@@ -13,7 +13,7 @@ if (!score) {
         loses :0,
         ties: 0,
     }
-}
+};
 
 let scoreP = document.querySelector('.js-score');
 scoreP.innerHTML = `Score: Wins: ${score.wins}, Loses: ${score.loses}, Ties: ${score.ties}`;
@@ -30,7 +30,7 @@ function pcChoice() {
                     pc = 'Scissors';
                 }
                 return pc;
-            }
+            };
 
 function resetScore () {
     score.wins = 0;
@@ -41,7 +41,7 @@ function resetScore () {
     resultP.innerHTML = null;
     movesP.innerHTML = null;
 
-}
+};
 
 function playGame(player) {
 
@@ -97,7 +97,7 @@ function playGame(player) {
 
     scoreP.innerHTML = `Score: Wins: ${score.wins}, Loses: ${score.loses}, Ties: ${score.ties}`;
     
-}
+};
 
 let itsAUto = false;
 let intervalId = null;
@@ -121,3 +121,14 @@ function autoplay() {
         autoButton.innerHTML = 'Autoplay'
     }
 
+};
+
+document.body.addEventListener('keydown', (event) => {
+    if (event.key === 'r') {
+        playGame('Rock');
+    } else if (event.key === 'p') {
+        playGame('Paper');
+    } else if (event.key === 's') {
+        playGame('Scissors');
+    }
+});
